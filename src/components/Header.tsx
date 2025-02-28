@@ -51,6 +51,20 @@ const Header = () => {
     }
   };
 
+  // Function to get language code
+  const getLanguageCode = (languageCode) => {
+    switch (languageCode) {
+      case "pt-BR":
+        return "PT";
+      case "en-US":
+        return "EN";
+      case "es-ES":
+        return "ES";
+      default:
+        return "PT";
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -109,7 +123,7 @@ const Header = () => {
                 aria-haspopup="true"
               >
                 <span className="text-xl">{getFlagEmoji(language)}</span>
-                <span className="font-medium text-gray-700">{language === "pt-BR" ? "PT" : language === "en-US" ? "EN" : "ES"}</span>
+                <span className="font-medium text-gray-700">{getLanguageCode(language)}</span>
                 <ChevronDown size={16} className={`transition-transform ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -121,21 +135,21 @@ const Header = () => {
                     className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
                   >
                     <span className="text-xl mr-2">🇧🇷</span>
-                    <span>{languageNames["pt-BR"]}</span>
+                    <span>PT</span>
                   </button>
                   <button
                     onClick={() => selectLanguage("en-US")}
                     className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
                   >
                     <span className="text-xl mr-2">🇬🇧</span>
-                    <span>{languageNames["en-US"]}</span>
+                    <span>EN</span>
                   </button>
                   <button
                     onClick={() => selectLanguage("es-ES")}
                     className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
                   >
                     <span className="text-xl mr-2">🇪🇸</span>
-                    <span>{languageNames["es-ES"]}</span>
+                    <span>ES</span>
                   </button>
                 </div>
               )}
@@ -170,21 +184,21 @@ const Header = () => {
                     className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
                   >
                     <span className="text-xl mr-2">🇧🇷</span>
-                    <span>{languageNames["pt-BR"]}</span>
+                    <span>PT</span>
                   </button>
                   <button
                     onClick={() => selectLanguage("en-US")}
                     className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
                   >
                     <span className="text-xl mr-2">🇬🇧</span>
-                    <span>{languageNames["en-US"]}</span>
+                    <span>EN</span>
                   </button>
                   <button
                     onClick={() => selectLanguage("es-ES")}
                     className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
                   >
                     <span className="text-xl mr-2">🇪🇸</span>
-                    <span>{languageNames["es-ES"]}</span>
+                    <span>ES</span>
                   </button>
                 </div>
               )}
