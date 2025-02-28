@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,16 +37,22 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <span className="text-2xl font-bold text-construction">
                 Monitorie
               </span>
               <span className="text-2xl font-medium ml-1">Suas Obras</span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
+            <Link
+              to="/como-funciona"
+              className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
+            >
+              Como Funciona
+            </Link>
             <a
               href="#features"
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
@@ -109,6 +116,13 @@ const Header = () => {
           </button>
         </div>
         <nav className="flex flex-col items-center justify-center space-y-8 p-8 h-full">
+          <Link
+            to="/como-funciona"
+            onClick={toggleMobileMenu}
+            className="text-xl font-medium text-gray-600 hover:text-construction"
+          >
+            Como Funciona
+          </Link>
           <a
             href="#features"
             onClick={toggleMobileMenu}
