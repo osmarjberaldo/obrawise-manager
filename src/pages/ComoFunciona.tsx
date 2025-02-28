@@ -16,11 +16,11 @@ const ComoFunciona = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                O que é o App Diário de Obra?
+                O que é o App Monitorie Suas Obras?
               </h1>
               <p className="text-lg md:text-xl text-gray-700 mb-8">
                 É um software que permite registrar e acompanhar diariamente os serviços realizados nas obras, 
-                através de um relatório padronizado "Relatório Diário de Obra (RDO)", fácil de preencher e simples de acompanhar.
+                através de um relatório padronizado "Relatório Monitorie Suas Obras (RMO)", fácil de preencher e simples de acompanhar.
               </p>
               <div className="flex justify-center">
                 <Button 
@@ -51,10 +51,10 @@ const ComoFunciona = () => {
                   diretor e o escritório da empresa. 
                 </p>
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6">
-                  Como funciona na prática o App Diário de Obra
+                  Como funciona na prática o App Monitorie Suas Obras
                 </h2>
                 <p className="text-lg text-gray-700 mb-6">
-                  O relatório diário de obra é um sistema online valioso para o gerenciamento de obras de construção.
+                  O relatório Monitorie Suas Obras é um sistema online valioso para o gerenciamento de obras de construção.
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
                   Te ajuda a monitorar o progresso da obra, identificar problemas, melhorar a comunicação, 
@@ -168,7 +168,7 @@ const ComoFunciona = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-10 text-center">
-                Para quem é o App Diário de Obra
+                Para quem é o App Monitorie Suas Obras
               </h2>
               
               <div className="bg-white rounded-xl shadow-md p-8 mb-10">

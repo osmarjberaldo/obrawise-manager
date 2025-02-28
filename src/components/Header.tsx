@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage, languageNames } from "@/contexts/LanguageContext";
+import { GB, BR, ES } from 'country-flag-icons/react/3x2';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,34 +38,38 @@ const Header = () => {
     setIsLanguageDropdownOpen(false);
   };
 
-  // Function to get flag emoji for language
-  const getFlagEmoji = (languageCode) => {
+  const getFlagComponent = (languageCode) => {
     switch (languageCode) {
       case "pt-BR":
-        return "🇧🇷";
+        return <BR className="w-6 h-4" />;
       case "en-US":
-        return "🇬🇧";
+        return <GB className="w-6 h-4" />;
       case "es-ES":
-        return "🇪🇸";
+        return <ES className="w-6 h-4" />;
       default:
-        return "🇧🇷";
+        return <BR className="w-6 h-4" />;
     }
   };
 
-  // Function to get language code
-  const getLanguageCode = (languageCode) => {
-    switch (languageCode) {
-      case "pt-BR":
-        return "PT";
-      case "en-US":
-        return "EN";
-      case "es-ES":
-        return "ES";
-      default:
-        return "PT";
-    }
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   };
 
+  const handleLogoClick = (e) => {
+    // If we're already on the home page, just scroll to top
+    // Otherwise, navigation will happen via the Link component
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      scrollToTop();
+    }
+    // Close mobile menu if it's open
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -77,7 +82,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center" onClick={handleLogoClick}>
               <span className="text-2xl font-bold text-construction">
                 Monitorie
               </span>
@@ -122,8 +127,7 @@ const Header = () => {
                 aria-expanded={isLanguageDropdownOpen}
                 aria-haspopup="true"
               >
-                <span className="text-xl">{getFlagEmoji(language)}</span>
-                <span className="font-medium text-gray-700">{getLanguageCode(language)}</span>
+                {getFlagComponent(language)}
                 <ChevronDown size={16} className={`transition-transform ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -132,24 +136,30 @@ const Header = () => {
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
                   <button
                     onClick={() => selectLanguage("pt-BR")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
                   >
-                    <span className="text-xl mr-2">🇧🇷</span>
-                    <span>PT</span>
+                    <div className="flex items-center">
+                      <BR className="w-6 h-4" />
+                      <span className="ml-2">PT</span>
+                    </div>
                   </button>
                   <button
                     onClick={() => selectLanguage("en-US")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
                   >
-                    <span className="text-xl mr-2">🇬🇧</span>
-                    <span>EN</span>
+                    <div className="flex items-center">
+                      <GB className="w-6 h-4" />
+                      <span className="ml-2">EN</span>
+                    </div>
                   </button>
                   <button
                     onClick={() => selectLanguage("es-ES")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
                   >
-                    <span className="text-xl mr-2">🇪🇸</span>
-                    <span>ES</span>
+                    <div className="flex items-center">
+                      <ES className="w-6 h-4" />
+                      <span className="ml-2">ES</span>
+                    </div>
                   </button>
                 </div>
               )}
@@ -173,7 +183,7 @@ const Header = () => {
                 aria-expanded={isLanguageDropdownOpen}
                 aria-haspopup="true"
               >
-                <span className="text-xl">{getFlagEmoji(language)}</span>
+                {getFlagComponent(language)}
               </button>
 
               {/* Mobile Language Dropdown */}
@@ -181,24 +191,30 @@ const Header = () => {
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
                   <button
                     onClick={() => selectLanguage("pt-BR")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
                   >
-                    <span className="text-xl mr-2">🇧🇷</span>
-                    <span>PT</span>
+                    <div className="flex items-center">
+                      <BR className="w-6 h-4" />
+                      <span className="ml-2">PT</span>
+                    </div>
                   </button>
                   <button
                     onClick={() => selectLanguage("en-US")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
                   >
-                    <span className="text-xl mr-2">🇬🇧</span>
-                    <span>EN</span>
+                    <div className="flex items-center">
+                      <GB className="w-6 h-4" />
+                      <span className="ml-2">EN</span>
+                    </div>
                   </button>
                   <button
                     onClick={() => selectLanguage("es-ES")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
                   >
-                    <span className="text-xl mr-2">🇪🇸</span>
-                    <span>ES</span>
+                    <div className="flex items-center">
+                      <ES className="w-6 h-4" />
+                      <span className="ml-2">ES</span>
+                    </div>
                   </button>
                 </div>
               )}

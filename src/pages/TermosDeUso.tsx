@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 const TermosDeUso = () => {
-  const { language } = useLanguage();
+  const { language, translations } = useLanguage();
   
   useEffect(() => {
     // Scroll to top when page loads
@@ -17,14 +17,14 @@ const TermosDeUso = () => {
       <Header />
       <main className="flex-grow bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h1 className="text-3xl font-bold mb-8 text-gray-900">Termos de Uso</h1>
+          <h1 className="text-3xl font-bold mb-8 text-gray-900">{translations.terms_title}</h1>
           
           <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm">
             <div className="prose max-w-none">
-              <p className="mb-4">Este contrato refere-se ao sistema Diário de Obras Online.</p>
-              <h2 className="text-xl font-bold my-4">CONTRATO DE LICENÇA PARA USUÁRIO FINAL (EULA)</h2>
+              <p className="mb-4">{translations.terms_intro}</p>
+              <h2 className="text-xl font-bold my-4">{translations.terms_eula_title}</h2>
               
-              <p className="mb-4">Por favor, leia cuidadosamente este Contrato antes de utilizar o software APP DIÁRIO DE OBRA (o "SOFTWARE") e todos os serviços nele oferecidos (os "Serviços") pela UPDATE DIGITAL TECNOLOGIA DA INFORMAÇÃO LTDA, ("LICENCIANTE"). Ao utilizar o Software, você concorda e aceita os termos e condições deste Contrato. Caso não concorde, não use o SOFTWARE e os SERVIÇOS da LICENCIANTE.</p>
+              <p className="mb-4">Por favor, leia cuidadosamente este Contrato antes de utilizar o software APP MONITORIE SUAS OBRAS (o "SOFTWARE") e todos os serviços nele oferecidos (os "Serviços") pela UPDATE DIGITAL TECNOLOGIA DA INFORMAÇÃO LTDA, ("LICENCIANTE"). Ao utilizar o Software, você concorda e aceita os termos e condições deste Contrato. Caso não concorde, não use o SOFTWARE e os SERVIÇOS da LICENCIANTE.</p>
               
               <p className="mb-4">Este Contrato de Licença de Usuário Final ("EULA") é um acordo legal entre o usuário pessoa física ou jurídica (o "USUÁRIO") e a UPDATE DIGITAL TECNOLOGIA DA INFORMAÇÃO LTDA, sociedade empresária limitada, devidamente inscrita no CNPJ/MF sob o nº 21.600.669/0001-94, com sede na cidade Santa Luzia, no endereço sito à Rua Teófilo Otoni, nº 106, Quarenta e Dois, Estado de Minas Gerais, neste ato representada na forma do contrato social, doravante denominado, (a "LICENCIANTE") para uso de programa de computador ("SOFTWARE"), que incluem sistemas, sites e qualquer serviço prestado pela LICENCIANTE, pelo prazo em que utilizá-lo.</p>
               
@@ -76,7 +76,7 @@ const TermosDeUso = () => {
               
               <p className="mb-4">5.2. Acessar o SOFTWARE via browser recomendado pelo LICENCIANTE e mantê-lo sempre atualizado na última versão do fabricante;</p>
               
-              <p className="mb-4">5.3. Comunicar-se oficialmente com a LICENCIANTE pelo email suporte@diariodeobras.net;</p>
+              <p className="mb-4">5.3. Comunicar-se oficialmente com a LICENCIANTE pelo email suporte@monitoriesuasobras.net;</p>
               
               <p className="mb-4">5.4. Manter, a seus dispêndios, um endereço de email, válido e frequentemente lido, nos cadastros da LICENCIANTE para que ela possa se comunicar de forma oficial;</p>
               
@@ -102,7 +102,7 @@ const TermosDeUso = () => {
               
               <p className="mb-4">6.4. Suspender o acesso ao SOFTWARE caso haja violação ou desrespeito às regras deste EULA ou legislação vigente, independente de aviso prévio;</p>
               
-              <p className="mb-4">6.5. Dar suporte a utilização do SOFTWARE em horário comercial via correio eletrônico no endereço suporte@diariodeobras.net ou pelo telefone (31) 3642-7595. Para contato por telefone, atende em horário comercial (das 09:00h às 12:00h, 13:00h às 17:00h) no fuso horário de Brasília, de acordo com a ordem e disponibilidade dos atendentes.</p>
+              <p className="mb-4">6.5. Dar suporte a utilização do SOFTWARE em horário comercial via correio eletrônico no endereço suporte@monitoriesuasobras.net ou pelo telefone (00)0000-0000. Para contato por telefone, atende em horário comercial (das 09:00h às 12:00h, 13:00h às 17:00h) no fuso horário de Brasília, de acordo com a ordem e disponibilidade dos atendentes.</p>
               
               <p className="mb-4">6.6. Manter sigilo absoluto sobre toda e qualquer informação, que de qualquer forma ou em qualquer época lhe for confiada pelo USUÁRIO.</p>
               
@@ -188,7 +188,7 @@ const TermosDeUso = () => {
               <h3 className="text-lg font-semibold mt-6 mb-3">12. ALTERAÇÕES PARA ESSE CONTRATO</h3>
               <p className="mb-4">12.1. A presente versão desta EULA foi atualizada pela última vez em: 07/12/2023.</p>
               
-              <p className="mb-4">12.2. O editor se reserva o direito de modificar, a qualquer momento, o site as presentes normas, especialmente para adaptá-las às evoluções do serviço App Diário de Obra, seja pela disponibilização de novas funcionalidades, seja pela supressão ou modificação daquelas já existentes.</p>
+              <p className="mb-4">12.2. O editor se reserva o direito de modificar, a qualquer momento, o site as presentes normas, especialmente para adaptá-las às evoluções do serviço App Monitorie Suas Obras, seja pela disponibilização de novas funcionalidades, seja pela supressão ou modificação daquelas já existentes.</p>
               
               <p className="mb-4">12.3. Qualquer alteração e/ou atualização destes Termos de Uso e Política de Privacidade passará a vigorar a partir da data de sua publicação no sítio do serviço e deverá ser integralmente observada pelos Usuários.</p>
               

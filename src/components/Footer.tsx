@@ -89,7 +89,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { label: "Termos de Uso", url: "/termos-de-uso" },
-                { label: "Política de Privacidade", url: "#" },
+                { label: "Política de Privacidade", url: "/politica-de-privacidade" },
                 { label: "Política de Cookies", url: "#" },
                 { label: "FAQ", url: "#" },
               ].map((link, index) => (
