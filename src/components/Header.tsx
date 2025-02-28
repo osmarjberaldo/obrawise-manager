@@ -1,12 +1,15 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage, languageNames } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+  const { language, setLanguage, translations } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +26,29 @@ const Header = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleLanguageDropdown = () => {
+    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+  };
+
+  const selectLanguage = (newLanguage) => {
+    setLanguage(newLanguage);
+    setIsLanguageDropdownOpen(false);
+  };
+
+  // Function to get flag emoji for language
+  const getFlagEmoji = (languageCode) => {
+    switch (languageCode) {
+      case "pt-BR":
+        return "🇧🇷";
+      case "en-US":
+        return "🇬🇧";
+      case "es-ES":
+        return "🇪🇸";
+      default:
+        return "🇧🇷";
+    }
   };
 
   return (
@@ -51,40 +77,119 @@ const Header = () => {
               to="/como-funciona"
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
             >
-              Como Funciona
+              {translations.how_it_works}
             </Link>
             <a
               href="#features"
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
             >
-              Funcionalidades
+              {translations.features}
             </a>
             <a
               href="#pricing"
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
             >
-              Planos
+              {translations.pricing}
             </a>
             <a
               href="#contact"
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
             >
-              Contato
+              {translations.contact}
             </a>
           </nav>
 
-          {/* Login Button */}
-          <div className="hidden md:block">
+          {/* Language Selector and Login Button */}
+          <div className="hidden md:flex items-center space-x-4">
+            <div className="relative">
+              <button
+                onClick={toggleLanguageDropdown}
+                className="flex items-center space-x-2 px-3 py-2 rounded border border-gray-200 hover:bg-gray-50 transition-colors"
+                aria-expanded={isLanguageDropdownOpen}
+                aria-haspopup="true"
+              >
+                <span className="text-xl">{getFlagEmoji(language)}</span>
+                <span className="font-medium text-gray-700">{language === "pt-BR" ? "PT" : language === "en-US" ? "EN" : "ES"}</span>
+                <ChevronDown size={16} className={`transition-transform ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Language Dropdown */}
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
+                  <button
+                    onClick={() => selectLanguage("pt-BR")}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
+                  >
+                    <span className="text-xl mr-2">🇧🇷</span>
+                    <span>{languageNames["pt-BR"]}</span>
+                  </button>
+                  <button
+                    onClick={() => selectLanguage("en-US")}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
+                  >
+                    <span className="text-xl mr-2">🇬🇧</span>
+                    <span>{languageNames["en-US"]}</span>
+                  </button>
+                  <button
+                    onClick={() => selectLanguage("es-ES")}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
+                  >
+                    <span className="text-xl mr-2">🇪🇸</span>
+                    <span>{languageNames["es-ES"]}</span>
+                  </button>
+                </div>
+              )}
+            </div>
+
             <Button
               variant="default"
               className="bg-construction hover:bg-construction-dark text-white font-medium transition-all duration-200 shadow-sm"
             >
-              Acessar Painel
+              {translations.access_panel}
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            {/* Mobile Language Selector */}
+            <div className="relative">
+              <button
+                onClick={toggleLanguageDropdown}
+                className="flex items-center space-x-1 p-2 rounded hover:bg-gray-100 transition-colors"
+                aria-expanded={isLanguageDropdownOpen}
+                aria-haspopup="true"
+              >
+                <span className="text-xl">{getFlagEmoji(language)}</span>
+              </button>
+
+              {/* Mobile Language Dropdown */}
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
+                  <button
+                    onClick={() => selectLanguage("pt-BR")}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
+                  >
+                    <span className="text-xl mr-2">🇧🇷</span>
+                    <span>{languageNames["pt-BR"]}</span>
+                  </button>
+                  <button
+                    onClick={() => selectLanguage("en-US")}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
+                  >
+                    <span className="text-xl mr-2">🇬🇧</span>
+                    <span>{languageNames["en-US"]}</span>
+                  </button>
+                  <button
+                    onClick={() => selectLanguage("es-ES")}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-left hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
+                  >
+                    <span className="text-xl mr-2">🇪🇸</span>
+                    <span>{languageNames["es-ES"]}</span>
+                  </button>
+                </div>
+              )}
+            </div>
+            
             <button
               onClick={toggleMobileMenu}
               className="text-gray-600 hover:text-construction focus:outline-none"
@@ -121,34 +226,34 @@ const Header = () => {
             onClick={toggleMobileMenu}
             className="text-xl font-medium text-gray-600 hover:text-construction"
           >
-            Como Funciona
+            {translations.how_it_works}
           </Link>
           <a
             href="#features"
             onClick={toggleMobileMenu}
             className="text-xl font-medium text-gray-600 hover:text-construction"
           >
-            Funcionalidades
+            {translations.features}
           </a>
           <a
             href="#pricing"
             onClick={toggleMobileMenu}
             className="text-xl font-medium text-gray-600 hover:text-construction"
           >
-            Planos
+            {translations.pricing}
           </a>
           <a
             href="#contact"
             onClick={toggleMobileMenu}
             className="text-xl font-medium text-gray-600 hover:text-construction"
           >
-            Contato
+            {translations.contact}
           </a>
           <Button
             variant="default"
             className="bg-construction hover:bg-construction-dark text-white font-medium mt-4 w-full max-w-xs"
           >
-            Acessar Painel
+            {translations.access_panel}
           </Button>
         </nav>
       </div>
