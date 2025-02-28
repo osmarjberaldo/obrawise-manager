@@ -1,5 +1,6 @@
 
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -53,20 +54,30 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6 text-white">Links Rápidos</h3>
             <ul className="space-y-3">
               {[
-                { label: "Início", url: "#" },
-                { label: "Funcionalidades", url: "#features" },
-                { label: "Planos", url: "#pricing" },
-                { label: "Contato", url: "#contact" },
+                { label: "Início", url: "/" },
+                { label: "Funcionalidades", url: "/#features" },
+                { label: "Planos", url: "/#pricing" },
+                { label: "Contato", url: "/#contact" },
+                { label: "Como Funciona", url: "/como-funciona" },
                 { label: "Blog", url: "#" },
                 { label: "Sobre nós", url: "#" },
               ].map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.url}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
+                  {link.url.startsWith("#") || link.url.includes("#") ? (
+                    <a
+                      href={link.url}
+                      className="text-gray-400 hover:text-white transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.url}
+                      className="text-gray-400 hover:text-white transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -77,18 +88,27 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6 text-white">Legal</h3>
             <ul className="space-y-3">
               {[
-                { label: "Termos de Uso", url: "#" },
+                { label: "Termos de Uso", url: "/termos-de-uso" },
                 { label: "Política de Privacidade", url: "#" },
                 { label: "Política de Cookies", url: "#" },
                 { label: "FAQ", url: "#" },
               ].map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.url}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
+                  {link.url.startsWith("#") ? (
+                    <a
+                      href={link.url}
+                      className="text-gray-400 hover:text-white transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.url}
+                      className="text-gray-400 hover:text-white transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -187,9 +207,9 @@ const Footer = () => {
             © {currentYear} Monitorie Suas Obras. Todos os direitos reservados.
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
-            <a href="#" className="text-sm text-gray-400 hover:text-white">
+            <Link to="/termos-de-uso" className="text-sm text-gray-400 hover:text-white">
               Termos
-            </a>
+            </Link>
             <a href="#" className="text-sm text-gray-400 hover:text-white">
               Privacidade
             </a>
