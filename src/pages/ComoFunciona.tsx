@@ -5,8 +5,11 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ComoFunciona = () => {
+  const { translations } = useLanguage();
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -16,17 +19,16 @@ const ComoFunciona = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                O que é o App Monitorie Suas Obras?
+                {translations.how_it_works_title}
               </h1>
               <p className="text-lg md:text-xl text-gray-700 mb-8">
-                É um software que permite registrar e acompanhar diariamente os serviços realizados nas obras, 
-                através de um relatório padronizado "Relatório Monitorie Suas Obras (RMO)", fácil de preencher e simples de acompanhar.
+                {translations.how_it_works_description}
               </p>
               <div className="flex justify-center">
                 <Button 
                   className="bg-construction hover:bg-construction-dark text-white font-medium text-lg px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Experimente 30 Dias Grátis
+                  {translations.try_free}
                 </Button>
               </div>
             </div>
@@ -39,26 +41,22 @@ const ComoFunciona = () => {
             <div className="max-w-3xl mx-auto">
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-gray-700 mb-6">
-                  Permite ter um histórico diário de tudo que aconteceu, saber os principais problemas 
-                  e ocorrências que estão acontecendo nas obras.
+                  {translations.daily_history}
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
-                  Registrar as atividades executadas, mão de obra e pessoas presentes, fotos e vídeos da execução diária.
+                  {translations.record_activities}
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
-                  Manter o cliente da obra atualizado diariamente sobre a evolução do projeto e facilitar 
-                  a comunicação entre o canteiro de obra, fiscalização, gestor de obra, engenheiro responsável, 
-                  diretor e o escritório da empresa. 
+                  {translations.keep_client_updated}
                 </p>
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6">
-                  Como funciona na prática o App Monitorie Suas Obras
+                  {translations.how_it_works_practice}
                 </h2>
                 <p className="text-lg text-gray-700 mb-6">
-                  O relatório Monitorie Suas Obras é um sistema online valioso para o gerenciamento de obras de construção.
+                  {translations.report_value}
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
-                  Te ajuda a monitorar o progresso da obra, identificar problemas, melhorar a comunicação, 
-                  documentar o projeto, gerenciar recursos, identificar oportunidades de melhoria e muito mais.
+                  {translations.helps_monitor}
                 </p>
               </div>
             </div>
@@ -70,7 +68,7 @@ const ComoFunciona = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-12 text-center">
-                Veja como o funcionamento é simples e padronizado
+                {translations.simple_standardized}
               </h2>
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
@@ -78,10 +76,10 @@ const ComoFunciona = () => {
                     <div className="w-12 h-12 bg-construction/10 rounded-full flex items-center justify-center mr-4">
                       <span className="text-2xl font-bold text-construction">1</span>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900">Cadastre suas obras</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">{translations.register_works}</h3>
                   </div>
                   <p className="text-gray-700 ml-16">
-                    Cadastre todas as suas obras no sistema
+                    {translations.register_works_desc}
                   </p>
                 </div>
                 <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
@@ -89,10 +87,10 @@ const ComoFunciona = () => {
                     <div className="w-12 h-12 bg-construction/10 rounded-full flex items-center justify-center mr-4">
                       <span className="text-2xl font-bold text-construction">2</span>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900">Crie relatórios diários</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">{translations.create_daily_reports}</h3>
                   </div>
                   <p className="text-gray-700 ml-16">
-                    Para cada dia de trabalho na obra, se cria um relatório
+                    {translations.create_daily_reports_desc}
                   </p>
                 </div>
                 <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
@@ -100,10 +98,10 @@ const ComoFunciona = () => {
                     <div className="w-12 h-12 bg-construction/10 rounded-full flex items-center justify-center mr-4">
                       <span className="text-2xl font-bold text-construction">3</span>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900">Registre informações</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">{translations.register_information}</h3>
                   </div>
                   <p className="text-gray-700 ml-16">
-                    Registre informações e fatos importantes referente ao andamento dos serviços executados nas obras, fotos e vídeos
+                    {translations.register_information_desc}
                   </p>
                 </div>
                 <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
@@ -111,10 +109,10 @@ const ComoFunciona = () => {
                     <div className="w-12 h-12 bg-construction/10 rounded-full flex items-center justify-center mr-4">
                       <span className="text-2xl font-bold text-construction">4</span>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900">Compartilhe e acompanhe</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">{translations.share_and_follow}</h3>
                   </div>
                   <p className="text-gray-700 ml-16">
-                    Acompanhe e compartilhe as informações registradas com outras pessoas da empresa e cliente da obra
+                    {translations.share_and_follow_desc}
                   </p>
                 </div>
               </div>
@@ -127,27 +125,26 @@ const ComoFunciona = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-                O que registrar no relatório?
+                {translations.what_to_register}
               </h2>
               <p className="text-lg text-gray-700 mb-10 text-center">
-                Tudo que você precisa para registrar o dia a dia de sua obra, e ter segurança para armazenar as informações 
-                e compartilhar de forma simples com todos os envolvidos no projeto.
+                {translations.what_to_register_desc}
               </p>
               
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {[
-                  { icon: FileText, text: "Informações da obra" },
-                  { icon: Calendar, text: "Prazos" },
-                  { icon: Clock, text: "Horário de trabalho" },
-                  { icon: Cloud, text: "Condição climática" },
-                  { icon: Users, text: "Mão de obra" },
-                  { icon: Truck, text: "Equipamentos" },
-                  { icon: CheckSquare, text: "Tarefas realizadas" },
-                  { icon: AlertTriangle, text: "Problemas (ocorrências)" },
-                  { icon: Package, text: "Materiais recebidos" },
-                  { icon: MessageCircle, text: "Comentários" },
-                  { icon: Image, text: "Fotos e Vídeo" },
-                  { icon: Paperclip, text: "Anexos" },
+                  { icon: FileText, text: translations.project_info },
+                  { icon: Calendar, text: translations.deadlines },
+                  { icon: Clock, text: translations.work_hours },
+                  { icon: Cloud, text: translations.weather_condition },
+                  { icon: Users, text: translations.workforce },
+                  { icon: Truck, text: translations.equipment },
+                  { icon: CheckSquare, text: translations.completed_tasks },
+                  { icon: AlertTriangle, text: translations.issues },
+                  { icon: Package, text: translations.received_materials },
+                  { icon: MessageCircle, text: translations.comments },
+                  { icon: Image, text: translations.photos_videos },
+                  { icon: Paperclip, text: translations.attachments },
                 ].map((item, index) => (
                   <div key={index} className="bg-gray-50 p-4 rounded-lg text-center hover:bg-construction/5 transition-colors duration-300">
                     <div className="flex flex-col items-center">
@@ -168,24 +165,23 @@ const ComoFunciona = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-10 text-center">
-                Para quem é o App Monitorie Suas Obras
+                {translations.who_is_for}
               </h2>
               
               <div className="bg-white rounded-xl shadow-md p-8 mb-10">
                 <p className="text-lg text-gray-700 mb-6">
-                  Este aplicativo é ideal para engenheiros, gestor de obra, construtoras, fiscais de obra ou qualquer 
-                  empresa de serviço que precisa de uma solução simples e fácil de utilizar para:
+                  {translations.who_is_for_desc}
                 </p>
                 
                 <ul className="space-y-3 ml-6">
                   {[
-                    "Acompanhar várias obras ao mesmo tempo.",
-                    "Registrar e ter um histórico do dia a dia da obra.",
-                    "Registrar fotos e vídeos.",
-                    "Facilitar a comunicação entre canteiro de obra e escritório.",
-                    "Fazer análise dos dados para melhor tomada de decisão.",
-                    "Saber quais os problemas e desafios estão acontecendo diariamente durante a execução da obra.",
-                    "Compartilhar as informações com o cliente da obra e demonstrar transparência dos serviços executados."
+                    translations.benefit_track_multiple_works,
+                    translations.benefit_daily_history,
+                    translations.benefit_photos_videos,
+                    translations.benefit_communication,
+                    translations.benefit_data_analysis,
+                    translations.benefit_daily_challenges,
+                    translations.benefit_share_info
                   ].map((item, i) => (
                     <li key={i} className="flex items-start">
                       <div className="flex-shrink-0 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mr-3 mt-1">
@@ -201,15 +197,15 @@ const ComoFunciona = () => {
               
               <div className="text-center">
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-                  Gerar relatório de obra não deveria ser complicado e chato…
+                  {translations.report_should_not_be_complicated}
                 </h3>
                 <p className="text-lg text-gray-700 mb-8">
-                  É fundamental que seja um processo simples, eficiente e descomplicado. Assim, facilita o trabalho e economiza tempo.
+                  {translations.report_should_be_simple}
                 </p>
                 <Button 
                   className="bg-construction hover:bg-construction-dark text-white font-medium text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Receba 30 dias de teste total
+                  {translations.try_free}
                 </Button>
               </div>
             </div>

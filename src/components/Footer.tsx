@@ -1,9 +1,11 @@
 
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { translations } = useLanguage();
 
   return (
     <footer id="contact" className="bg-gray-900 text-white pt-16 pb-8">
@@ -16,12 +18,11 @@ const Footer = () => {
                 Monitorie
               </span>
               <span className="text-2xl font-medium ml-1 text-white">
-                Suas Obras
+                {translations.suas_obras}
               </span>
             </div>
             <p className="text-gray-400 mb-6">
-              Plataforma completa para gerenciamento de obras civis, facilitando o
-              controle e monitoramento de projetos.
+              {translations.platform_complete_desc}
             </p>
             <div className="space-y-4">
               <a
@@ -51,16 +52,19 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Links Rápidos</h3>
+            <h3 className="text-lg font-bold mb-6 text-white">{translations.quick_links}</h3>
             <ul className="space-y-3">
               {[
-                { label: "Início", url: "/" },
-                { label: "Funcionalidades", url: "/#features" },
-                { label: "Planos", url: "/#pricing" },
-                { label: "Contato", url: "/#contact" },
-                { label: "Como Funciona", url: "/como-funciona" },
-                { label: "Blog", url: "#" },
-                { label: "Sobre nós", url: "#" },
+                { label: translations.home, url: "/" },
+                { label: translations.features, url: "/#features" },
+                { label: translations.pricing, url: "/#pricing" },
+                { label: translations.contact, url: "/#contact" },
+                { label: translations.how_it_works, url: "/como-funciona" },
+                { label: translations.para_quem, url: "/para-quem" },
+                { label: translations.blog, url: "#" },
+                { label: translations.about_us, url: "#" },
+                { label: translations.cases, url: "#" },
+                { label: translations.support, url: "#" },
               ].map((link, index) => (
                 <li key={index}>
                   {link.url.startsWith("#") || link.url.includes("#") ? (
@@ -85,13 +89,13 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Legal</h3>
+            <h3 className="text-lg font-bold mb-6 text-white">{translations.legal}</h3>
             <ul className="space-y-3">
               {[
-                { label: "Termos de Uso", url: "/termos-de-uso" },
-                { label: "Política de Privacidade", url: "/politica-de-privacidade" },
-                { label: "Política de Cookies", url: "#" },
-                { label: "FAQ", url: "#" },
+                { label: translations.terms_of_use, url: "/termos-de-uso" },
+                { label: translations.privacy_policy, url: "/politica-de-privacidade" },
+                { label: translations.cookies_policy, url: "#" },
+                { label: translations.faq, url: "#" },
               ].map((link, index) => (
                 <li key={index}>
                   {link.url.startsWith("#") ? (
@@ -116,21 +120,21 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Receba Novidades</h3>
+            <h3 className="text-lg font-bold mb-6 text-white">{translations.receive_news}</h3>
             <p className="text-gray-400 mb-6">
-              Inscreva-se para receber dicas e novidades sobre gerenciamento de obras.
+              {translations.newsletter_desc}
             </p>
             <div className="relative">
               <input
                 type="email"
-                placeholder="Seu e-mail"
+                placeholder={translations.your_email}
                 className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-construction"
               />
               <button
                 type="submit"
                 className="absolute right-2 top-2 bg-construction hover:bg-construction-dark text-white rounded-md px-3 py-1 text-sm font-medium transition-colors duration-200"
               >
-                Inscrever
+                {translations.subscribe}
               </button>
             </div>
             <div className="mt-6 flex space-x-4">
@@ -204,17 +208,17 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {currentYear} Monitorie Suas Obras. Todos os direitos reservados.
+            © {currentYear} Monitorie {translations.suas_obras}. {translations.all_rights_reserved}
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <Link to="/termos-de-uso" className="text-sm text-gray-400 hover:text-white">
-              Termos
+              {translations.terms}
             </Link>
             <a href="#" className="text-sm text-gray-400 hover:text-white">
-              Privacidade
+              {translations.privacy}
             </a>
             <a href="#" className="text-sm text-gray-400 hover:text-white">
-              Cookies
+              {translations.cookies}
             </a>
           </div>
         </div>
