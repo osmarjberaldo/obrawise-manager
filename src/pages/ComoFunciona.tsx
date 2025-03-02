@@ -25,11 +25,13 @@ const ComoFunciona = () => {
                 {translations.how_it_works_description}
               </p>
               <div className="flex justify-center">
-                <Button 
-                  className="bg-construction hover:bg-construction-dark text-white font-medium text-lg px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  {translations.try_free}
-                </Button>
+                <Link to="/para-quem">
+                  <Button 
+                    className="bg-construction hover:bg-construction-dark text-white font-medium text-lg px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    {translations.try_free}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -202,11 +204,13 @@ const ComoFunciona = () => {
                 <p className="text-lg text-gray-700 mb-8">
                   {translations.report_should_be_simple}
                 </p>
-                <Button 
-                  className="bg-construction hover:bg-construction-dark text-white font-medium text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  {translations.try_free}
-                </Button>
+                <Link to="/para-quem">
+                  <Button 
+                    className="bg-construction hover:bg-construction-dark text-white font-medium text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    {translations.try_free}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

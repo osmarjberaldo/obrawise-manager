@@ -17,8 +17,8 @@ const Footer = () => {
               <span className="text-2xl font-bold text-construction">
                 Monitorie
               </span>
-              <span className="text-2xl font-medium ml-1 text-white">
-                {translations.suas_obras}
+              <span className="text-2xl font-medium text-white">
+                Suas Obras
               </span>
             </div>
             <p className="text-gray-400 mb-6">
@@ -140,11 +140,11 @@ const Footer = () => {
             <div className="mt-6 flex space-x-4">
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
+                className="bg-gray-800 hover:bg-construction text-gray-400 hover:text-white p-2 rounded-full transition-all duration-200"
                 aria-label={translations.social_facebook}
               >
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -158,11 +158,11 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
+                className="bg-gray-800 hover:bg-construction text-gray-400 hover:text-white p-2 rounded-full transition-all duration-200"
                 aria-label={translations.social_instagram}
               >
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -176,11 +176,11 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
+                className="bg-gray-800 hover:bg-construction text-gray-400 hover:text-white p-2 rounded-full transition-all duration-200"
                 aria-label={translations.social_twitter}
               >
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -190,11 +190,11 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
+                className="bg-gray-800 hover:bg-construction text-gray-400 hover:text-white p-2 rounded-full transition-all duration-200"
                 aria-label={translations.social_linkedin}
               >
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -206,22 +206,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © {currentYear} Monitorie {translations.suas_obras}. {translations.all_rights_reserved}
-          </p>
-          <div className="mt-4 md:mt-0 flex space-x-6">
-            <Link to="/termos-de-uso" className="text-sm text-gray-400 hover:text-white">
-              {translations.terms}
-            </Link>
-            <a href="#" className="text-sm text-gray-400 hover:text-white">
-              {translations.privacy}
-            </a>
-            <a href="#" className="text-sm text-gray-400 hover:text-white">
-              {translations.cookies}
-            </a>
+          <div className="mt-8 pt-8 border-t border-gray-800">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-gray-400 text-sm text-center md:text-left">
+                © {currentYear} Monitorie Suas Obras. {translations.all_rights_reserved}
+              </p>
+              <p className="text-gray-400 text-sm text-center md:text-right">
+                {translations.developed_by} <a href="https://devosmar.com.br" target="_blank" rel="noopener noreferrer" className="text-construction hover:text-construction-light">devosmar</a>
+              </p>
+            </div>
           </div>
-        </div>
       </div>
     </footer>
   );

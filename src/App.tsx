@@ -10,6 +10,7 @@ import ComoFunciona from "./pages/ComoFunciona";
 import TermosDeUso from "./pages/TermosDeUso";
 import PoliticaDePrivacidade from "./pages/PoliticaDePrivacidade";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import ParaQuem from "./pages/ParaQuem";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/como-funciona" element={<ComoFunciona />} />
+            <Route path="/para-quem" element={<ParaQuem />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

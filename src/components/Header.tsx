@@ -98,24 +98,24 @@ const Header = () => {
             >
               {translations.how_it_works}
             </Link>
-            <a
-              href="#features"
+            <Link
+              to="/#features"
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
             >
               {translations.features}
-            </a>
-            <a
-              href="#pricing"
+            </Link>
+            <Link
+              to="/#pricing"
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
             >
               {translations.pricing}
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              to="/#contact"
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
             >
               {translations.contact}
-            </a>
+            </Link>
           </nav>
 
           {/* Language Selector and Login Button */}
@@ -258,27 +258,27 @@ const Header = () => {
           >
             {translations.how_it_works}
           </Link>
-          <a
-            href="#features"
+          <Link
+            to="/#features"
             onClick={toggleMobileMenu}
             className="text-xl font-medium text-gray-600 hover:text-construction"
           >
             {translations.features}
-          </a>
-          <a
-            href="#pricing"
+          </Link>
+          <Link
+            to="/#pricing"
             onClick={toggleMobileMenu}
             className="text-xl font-medium text-gray-600 hover:text-construction"
           >
             {translations.pricing}
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            to="/#contact"
             onClick={toggleMobileMenu}
             className="text-xl font-medium text-gray-600 hover:text-construction"
           >
             {translations.contact}
-          </a>
+          </Link>
           <Button
             variant="default"
             className="bg-construction hover:bg-construction-dark text-white font-medium mt-4 w-full max-w-xs"
