@@ -141,7 +141,7 @@ const Footer = () => {
               <a
                 href="#"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
-                aria-label="Facebook"
+                aria-label={translations.social_facebook}
               >
                 <svg
                   className="h-6 w-6"
@@ -159,7 +159,7 @@ const Footer = () => {
               <a
                 href="#"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
-                aria-label="Instagram"
+                aria-label={translations.social_instagram}
               >
                 <svg
                   className="h-6 w-6"
@@ -177,7 +177,7 @@ const Footer = () => {
               <a
                 href="#"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
-                aria-label="Twitter"
+                aria-label={translations.social_twitter}
               >
                 <svg
                   className="h-6 w-6"
@@ -191,7 +191,7 @@ const Footer = () => {
               <a
                 href="#"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
-                aria-label="LinkedIn"
+                aria-label={translations.social_linkedin}
               >
                 <svg
                   className="h-6 w-6"
