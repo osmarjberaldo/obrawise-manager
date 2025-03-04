@@ -127,7 +127,15 @@ const Header = () => {
                 aria-expanded={isLanguageDropdownOpen}
                 aria-haspopup="true"
               >
-                {getFlagComponent(language)}
+                <div className="flex items-center space-x-2">
+                  {getFlagComponent(language)}
+                  <span className="text-sm">
+                    {language === "pt-BR" ? "Português" :
+                     language === "en-US" ? "English" :
+                     language === "es-ES" ? "Español" :
+                     "Português"}
+                  </span>
+                </div>
                 <ChevronDown size={16} className={`transition-transform ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -140,7 +148,7 @@ const Header = () => {
                   >
                     <div className="flex items-center">
                       <BR className="w-6 h-4" />
-                      <span className="ml-2">PT</span>
+                      <span className="ml-2">{translations.portuguese}</span>
                     </div>
                   </button>
                   <button
@@ -149,7 +157,7 @@ const Header = () => {
                   >
                     <div className="flex items-center">
                       <GB className="w-6 h-4" />
-                      <span className="ml-2">EN</span>
+                      <span className="ml-2">{translations.english}</span>
                     </div>
                   </button>
                   <button
@@ -158,18 +166,26 @@ const Header = () => {
                   >
                     <div className="flex items-center">
                       <ES className="w-6 h-4" />
-                      <span className="ml-2">ES</span>
+                      <span className="ml-2">{translations.spanish}</span>
                     </div>
                   </button>
                 </div>
               )}
             </div>
 
+            <Link to="/app">
+              <Button
+                variant="default"
+                className="bg-construction hover:bg-construction-dark text-white font-medium transition-all duration-200 shadow-sm"
+              >
+                {translations.login}
+              </Button>
+            </Link>
             <Button
-              variant="default"
-              className="bg-construction hover:bg-construction-dark text-white font-medium transition-all duration-200 shadow-sm"
+              variant="outline"
+              className="border-construction text-construction hover:bg-construction/5 font-medium transition-all duration-200"
             >
-              {translations.access_panel}
+              {translations.register}
             </Button>
           </div>
 
@@ -177,50 +193,57 @@ const Header = () => {
           <div className="md:hidden flex items-center space-x-4">
             {/* Mobile Language Selector */}
             <div className="relative">
-              <button
+              <Button
                 onClick={toggleLanguageDropdown}
-                className="flex items-center space-x-1 p-2 rounded hover:bg-gray-100 transition-colors"
+                className="flex items-center space-x-2 p-2 rounded hover:bg-gray-100 transition-colors"
                 aria-expanded={isLanguageDropdownOpen}
                 aria-haspopup="true"
               >
-                {getFlagComponent(language)}
-              </button>
+                <div className="flex items-center space-x-2">
+                  {getFlagComponent(language)}
+                  <span className="text-sm">
+                    {language === "pt-BR" ? translations.portuguese :
+                     language === "en-US" ? translations.english :
+                     language === "es-ES" ? translations.spanish :
+                     translations.portuguese}
+                  </span>
+                </div>
+              </Button>
 
               {/* Mobile Language Dropdown */}
               {isLanguageDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
                   <button
                     onClick={() => selectLanguage("pt-BR")}
-                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
                   >
                     <div className="flex items-center">
                       <BR className="w-6 h-4" />
-                      <span className="ml-2">PT</span>
+                      <span className="ml-2 text-gray-700">{translations.portuguese}</span>
                     </div>
                   </button>
                   <button
                     onClick={() => selectLanguage("en-US")}
-                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
                   >
                     <div className="flex items-center">
                       <GB className="w-6 h-4" />
-                      <span className="ml-2">EN</span>
+                      <span className="ml-2 text-gray-700">{translations.english}</span>
                     </div>
                   </button>
                   <button
                     onClick={() => selectLanguage("es-ES")}
-                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
                   >
                     <div className="flex items-center">
                       <ES className="w-6 h-4" />
-                      <span className="ml-2">ES</span>
+                      <span className="ml-2 text-gray-700">{translations.spanish}</span>
                     </div>
                   </button>
                 </div>
               )}
             </div>
-            
-            <button
+            <Button
               onClick={toggleMobileMenu}
               className="text-gray-600 hover:text-construction focus:outline-none"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
@@ -230,7 +253,7 @@ const Header = () => {
               ) : (
                 <Menu className="h-6 w-6" />
               )}
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -283,7 +306,13 @@ const Header = () => {
             variant="default"
             className="bg-construction hover:bg-construction-dark text-white font-medium mt-4 w-full max-w-xs"
           >
-            {translations.access_panel}
+            {translations.login}
+          </Button>
+          <Button
+            variant="outline"
+            className="border-construction text-construction hover:bg-construction/5 font-medium transition-all duration-200"
+          >
+            {translations.register}
           </Button>
         </nav>
       </div>

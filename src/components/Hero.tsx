@@ -50,31 +50,31 @@ const Hero = () => {
               <div className="relative rounded-xl overflow-hidden shadow-2xl animate-float">
                 <img
                   src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Engenheiro com capacete em obra"
+                  alt="Construction team reviewing plans"
                   className="w-full h-48 object-cover rounded-xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent rounded-xl"></div>
               </div>
               <div className="relative rounded-xl overflow-hidden shadow-2xl animate-float delay-100">
                 <img
-                  src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Equipe de engenheiros em construção"
+                  src="https://thumbs.dreamstime.com/b/casa-sob-constru%C3%A7%C3%A3o-em-modelos-53360048.jpg"
+                  alt="Construction project inspection"
                   className="w-full h-48 object-cover rounded-xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent rounded-xl"></div>
               </div>
               <div className="relative rounded-xl overflow-hidden shadow-2xl animate-float delay-200">
                 <img
-                  src="https://images.unsplash.com/photo-1590142035743-ee3a4605ab27?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Engenheiros revisando projeto"
+                  src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Construction site supervisor with safety helmet"
                   className="w-full h-48 object-cover rounded-xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent rounded-xl"></div>
               </div>
               <div className="relative rounded-xl overflow-hidden shadow-2xl animate-float delay-300">
                 <img
-                  src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Supervisão de obra"
+                  src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Construction workers on site"
                   className="w-full h-48 object-cover rounded-xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent rounded-xl"></div>
