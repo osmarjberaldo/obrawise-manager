@@ -1,10 +1,9 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage, languageNames } from "@/contexts/LanguageContext";
-import { GB, BR, ES } from 'country-flag-icons/react/3x2';
+import { GB, BR, ES } from "country-flag-icons/react/3x2";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,14 +53,14 @@ const Header = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
   const handleLogoClick = (e) => {
     // If we're already on the home page, just scroll to top
     // Otherwise, navigation will happen via the Link component
-    if (window.location.pathname === '/') {
+    if (window.location.pathname === "/") {
       e.preventDefault();
       scrollToTop();
     }
@@ -82,7 +81,11 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center" onClick={handleLogoClick}>
+            <Link
+              to="/"
+              className="flex items-center"
+              onClick={handleLogoClick}
+            >
               <span className="text-2xl font-bold text-construction">
                 Monitorie
               </span>
@@ -130,13 +133,21 @@ const Header = () => {
                 <div className="flex items-center space-x-2">
                   {getFlagComponent(language)}
                   <span className="text-sm">
-                    {language === "pt-BR" ? "Português" :
-                     language === "en-US" ? "English" :
-                     language === "es-ES" ? "Español" :
-                     "Português"}
+                    {language === "pt-BR"
+                      ? "Português"
+                      : language === "en-US"
+                      ? "English"
+                      : language === "es-ES"
+                      ? "Español"
+                      : "Português"}
                   </span>
                 </div>
-                <ChevronDown size={16} className={`transition-transform ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform ${
+                    isLanguageDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
 
               {/* Language Dropdown */}
@@ -144,7 +155,9 @@ const Header = () => {
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
                   <button
                     onClick={() => selectLanguage("pt-BR")}
-                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${
+                      language === "pt-BR" ? "bg-gray-100" : ""
+                    }`}
                   >
                     <div className="flex items-center">
                       <BR className="w-6 h-4" />
@@ -153,7 +166,9 @@ const Header = () => {
                   </button>
                   <button
                     onClick={() => selectLanguage("en-US")}
-                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${
+                      language === "en-US" ? "bg-gray-100" : ""
+                    }`}
                   >
                     <div className="flex items-center">
                       <GB className="w-6 h-4" />
@@ -162,7 +177,9 @@ const Header = () => {
                   </button>
                   <button
                     onClick={() => selectLanguage("es-ES")}
-                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center justify-between w-full px-4 py-2 text-sm hover:bg-gray-100 ${
+                      language === "es-ES" ? "bg-gray-100" : ""
+                    }`}
                   >
                     <div className="flex items-center">
                       <ES className="w-6 h-4" />
@@ -173,7 +190,7 @@ const Header = () => {
               )}
             </div>
 
-            <Link to="/app">
+            <Link to="https://devosmar.com.br/obras/app" target="_blank">
               <Button
                 variant="default"
                 className="bg-construction hover:bg-construction-dark text-white font-medium transition-all duration-200 shadow-sm"
@@ -181,12 +198,6 @@ const Header = () => {
                 {translations.login}
               </Button>
             </Link>
-            <Button
-              variant="outline"
-              className="border-construction text-construction hover:bg-construction/5 font-medium transition-all duration-200"
-            >
-              {translations.register}
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -202,10 +213,13 @@ const Header = () => {
                 <div className="flex items-center space-x-2">
                   {getFlagComponent(language)}
                   <span className="text-sm">
-                    {language === "pt-BR" ? translations.portuguese :
-                     language === "en-US" ? translations.english :
-                     language === "es-ES" ? translations.spanish :
-                     translations.portuguese}
+                    {language === "pt-BR"
+                      ? translations.portuguese
+                      : language === "en-US"
+                      ? translations.english
+                      : language === "es-ES"
+                      ? translations.spanish
+                      : translations.portuguese}
                   </span>
                 </div>
               </Button>
@@ -215,29 +229,41 @@ const Header = () => {
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
                   <button
                     onClick={() => selectLanguage("pt-BR")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "pt-BR" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
+                      language === "pt-BR" ? "bg-gray-100" : ""
+                    }`}
                   >
                     <div className="flex items-center">
                       <BR className="w-6 h-4" />
-                      <span className="ml-2 text-gray-700">{translations.portuguese}</span>
+                      <span className="ml-2 text-gray-700">
+                        {translations.portuguese}
+                      </span>
                     </div>
                   </button>
                   <button
                     onClick={() => selectLanguage("en-US")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "en-US" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
+                      language === "en-US" ? "bg-gray-100" : ""
+                    }`}
                   >
                     <div className="flex items-center">
                       <GB className="w-6 h-4" />
-                      <span className="ml-2 text-gray-700">{translations.english}</span>
+                      <span className="ml-2 text-gray-700">
+                        {translations.english}
+                      </span>
                     </div>
                   </button>
                   <button
                     onClick={() => selectLanguage("es-ES")}
-                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${language === "es-ES" ? "bg-gray-100" : ""}`}
+                    className={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
+                      language === "es-ES" ? "bg-gray-100" : ""
+                    }`}
                   >
                     <div className="flex items-center">
                       <ES className="w-6 h-4" />
-                      <span className="ml-2 text-gray-700">{translations.spanish}</span>
+                      <span className="ml-2 text-gray-700">
+                        {translations.spanish}
+                      </span>
                     </div>
                   </button>
                 </div>
