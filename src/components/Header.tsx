@@ -57,17 +57,25 @@ const Header = () => {
     });
   };
 
+  const handleAnchorClick = (e, id) => {
+    e.preventDefault();
+    if (window.location.pathname !== "/") {
+      window.location.href = `/${id}`;
+      return;
+    }
+    const element = document.getElementById(id.replace("#", ""));
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const handleLogoClick = (e) => {
-    // If we're already on the home page, just scroll to top
-    // Otherwise, navigation will happen via the Link component
     if (window.location.pathname === "/") {
       e.preventDefault();
       scrollToTop();
     }
-    // Close mobile menu if it's open
-    if (isMobileMenuOpen) {
-      setIsMobileMenuOpen(false);
-    }
+    setIsMobileMenuOpen(false);
   };
   return (
     <header
@@ -101,24 +109,27 @@ const Header = () => {
             >
               {translations.how_it_works}
             </Link>
-            <Link
-              to="/#features"
+            <a
+              href="/#features"
+              onClick={(e) => handleAnchorClick(e, "#features")}
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
             >
               {translations.features}
-            </Link>
-            <Link
-              to="/#pricing"
+            </a>
+            <a
+              href="/#pricing"
+              onClick={(e) => handleAnchorClick(e, "#pricing")}
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
             >
               {translations.pricing}
-            </Link>
-            <Link
-              to="/#contact"
+            </a>
+            <a
+              href="/#contact"
+              onClick={(e) => handleAnchorClick(e, "#contact")}
               className="text-base font-medium text-gray-600 hover:text-construction transition-colors duration-200"
             >
               {translations.contact}
-            </Link>
+            </a>
           </nav>
 
           {/* Language Selector and Login Button */}
@@ -159,9 +170,12 @@ const Header = () => {
                       language === "pt-BR" ? "bg-gray-100" : ""
                     }`}
                   >
-                    <div className="flex items-center">
+                    <div className="flex items-center space-x-2">
                       <BR className="w-6 h-4" />
-                      <span className="ml-2">{translations.portuguese}</span>
+                      <span className="text-gray-700">Português</span>
+                      <span className="text-gray-500">
+                        {translations.portuguese}
+                      </span>
                     </div>
                   </button>
                   <button
@@ -170,9 +184,12 @@ const Header = () => {
                       language === "en-US" ? "bg-gray-100" : ""
                     }`}
                   >
-                    <div className="flex items-center">
+                    <div className="flex items-center space-x-2">
                       <GB className="w-6 h-4" />
-                      <span className="ml-2">{translations.english}</span>
+                      <span className="text-gray-700">English</span>
+                      <span className="text-gray-500">
+                        {translations.english}
+                      </span>
                     </div>
                   </button>
                   <button
@@ -181,9 +198,12 @@ const Header = () => {
                       language === "es-ES" ? "bg-gray-100" : ""
                     }`}
                   >
-                    <div className="flex items-center">
+                    <div className="flex items-center space-x-2">
                       <ES className="w-6 h-4" />
-                      <span className="ml-2">{translations.spanish}</span>
+                      <span className="text-gray-700">Español</span>
+                      <span className="text-gray-500">
+                        {translations.spanish}
+                      </span>
                     </div>
                   </button>
                 </div>
@@ -233,9 +253,10 @@ const Header = () => {
                       language === "pt-BR" ? "bg-gray-100" : ""
                     }`}
                   >
-                    <div className="flex items-center">
+                    <div className="flex items-center space-x-2">
                       <BR className="w-6 h-4" />
-                      <span className="ml-2 text-gray-700">
+                      <span className="text-gray-700">Português</span>
+                      <span className="text-gray-500">
                         {translations.portuguese}
                       </span>
                     </div>
@@ -246,9 +267,10 @@ const Header = () => {
                       language === "en-US" ? "bg-gray-100" : ""
                     }`}
                   >
-                    <div className="flex items-center">
+                    <div className="flex items-center space-x-2">
                       <GB className="w-6 h-4" />
-                      <span className="ml-2 text-gray-700">
+                      <span className="text-gray-700">English</span>
+                      <span className="text-gray-500">
                         {translations.english}
                       </span>
                     </div>
@@ -259,9 +281,10 @@ const Header = () => {
                       language === "es-ES" ? "bg-gray-100" : ""
                     }`}
                   >
-                    <div className="flex items-center">
+                    <div className="flex items-center space-x-2">
                       <ES className="w-6 h-4" />
-                      <span className="ml-2 text-gray-700">
+                      <span className="text-gray-700">Español</span>
+                      <span className="text-gray-500">
                         {translations.spanish}
                       </span>
                     </div>
@@ -307,27 +330,27 @@ const Header = () => {
           >
             {translations.how_it_works}
           </Link>
-          <Link
-            to="/#features"
-            onClick={toggleMobileMenu}
+          <a
+            href="/#features"
+            onClick={(e) => handleAnchorClick(e, "#features")}
             className="text-xl font-medium text-gray-600 hover:text-construction"
           >
             {translations.features}
-          </Link>
-          <Link
-            to="/#pricing"
-            onClick={toggleMobileMenu}
+          </a>
+          <a
+            href="/#pricing"
+            onClick={(e) => handleAnchorClick(e, "#pricing")}
             className="text-xl font-medium text-gray-600 hover:text-construction"
           >
             {translations.pricing}
-          </Link>
-          <Link
-            to="/#contact"
-            onClick={toggleMobileMenu}
+          </a>
+          <a
+            href="/#contact"
+            onClick={(e) => handleAnchorClick(e, "#contact")}
             className="text-xl font-medium text-gray-600 hover:text-construction"
           >
             {translations.contact}
-          </Link>
+          </a>
           <Button
             variant="default"
             className="bg-construction hover:bg-construction-dark text-white font-medium mt-4 w-full max-w-xs"
